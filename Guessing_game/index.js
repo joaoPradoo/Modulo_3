@@ -1,6 +1,7 @@
 const { randomInt } = require('crypto');
 const readline = require('readline');
 
+console.log("Welcome player!")
 console.log("Type a number between 1 and 10:");
 
 const rl = readline.createInterface({
