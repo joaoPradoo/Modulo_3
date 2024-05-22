@@ -88,8 +88,9 @@ function markPurchased(){
 function showList(){
   console.log("\n__________Shop List!___________");
     shopList.forEach((item, itemName) => {
-      const status = item.Pruchased ? " (Purchased)" : "";
-      console.log(`${itemName}: R$ ${item.price.toFixed(2)}${status}`);
+      const price = parseFloat(item.price);
+      const status = item.Purchased ? " (Purchased)" : "";
+      console.log(`${itemName}: R$ ${price.toFixed(2)}${status}`);
     });
     console.log("_______________________________");
     Main();
