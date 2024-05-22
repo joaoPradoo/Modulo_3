@@ -48,33 +48,39 @@ function addList(){
         const price = parseFloat(itemPrice);
         if (!isNaN(price) && price >= 0) {
             shopList.set(itemName, { Price: price, Pruchased: false });
-            console.log(`The item "${itemName}" is already on the list.`);
+            console.log(`The item "${itemName}" was added to the list.`);
+            Main();
         } else {
             console.log("Invalid number. Type a valid one.");
+            Main();
         }
     });
 });
 }
 
 function removeList(){
-  rl.question("Type the name of the item that you want to remove", (userChose)=>{
+  rl.question("Type the name of the item that you want to remove: ", (userChose)=>{
     if(shopList.has(userChose)){
       shopList.delete(userChose);
-      console.log(`The item ${userChose} was removed from the list`);
+      console.log(`The item "${userChose}" was removed from the list`);
+      Main();
     }else{
-      console.log(`The item ${userChose} are not in the list`);
+      console.log(`The item "${userChose}" are not in the list`);
+      Main();
     }
   });
 }
 
 function markPurchased(){
-  rl.question("Type the name of the item that you want to mark as purchased", (userChose)=>{
+  rl.question("Type the name of the item that you want to mark as purchased: ", (userChose)=>{
     if(shopList.has(userChose)){
       const item = shopList.get(userChose);
             item.Pruchased = true;
-      console.log(`The item ${userChose} was marked as purchased`);
+      console.log(`The item "${userChose}" was marked as purchased`);
+      Main();
     }else{
-      console.log(`The item ${userChose} are not in the list`);
+      console.log(`The item "${userChose}" are not in the list`);
+      Main();
     }
   });
 }
@@ -86,4 +92,5 @@ function showList(){
       console.log(`${itemName}: R$ ${item.price.toFixed(2)}${status}`);
     });
     console.log("_______________________________");
+    Main();
 }
