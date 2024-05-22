@@ -47,12 +47,12 @@ function addList(){
     rl.question("Type the price of the item: ", (itemPrice) => {
         const price = parseFloat(itemPrice);
         if (!isNaN(price) && price >= 0) {
-            shopList.set(itemName, { Price: price, Pruchased: false });
+            shopList.set(itemName, { Price: price, Purchased: false });
             console.log(`The item "${itemName}" was added to the list.`);
             Main();
         } else {
             console.log("Invalid number. Type a valid one.");
-            Main();
+            addList();
         }
     });
 });
@@ -75,7 +75,7 @@ function markPurchased(){
   rl.question("Type the name of the item that you want to mark as purchased: ", (userChose)=>{
     if(shopList.has(userChose)){
       const item = shopList.get(userChose);
-            item.Pruchased = true;
+            item.Purchased = true;
       console.log(`The item "${userChose}" was marked as purchased`);
       Main();
     }else{
@@ -88,7 +88,7 @@ function markPurchased(){
 function showList(){
   console.log("\n__________Shop List!___________");
     shopList.forEach((item, itemName) => {
-      const price = parseFloat(item.price);
+      const price = parseFloat(item.Price);
       const status = item.Purchased ? " (Purchased)" : "";
       console.log(`${itemName}: R$ ${price.toFixed(2)}${status}`);
     });
