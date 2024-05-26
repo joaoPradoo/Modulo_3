@@ -1,12 +1,16 @@
-const readline = require('readline');
+function oddndPair(array){
+    return array.sort((a, b) =>{
+        if (a % 2 == 0 && b % 2 != 0){
+            return -1;
+        }
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-});
-rl.prompt();
+        if (a % 2 != 0 && b % 2 == 0){
+            return 1;
+        }
 
-rl.on('line', (answer) => {
-    
-rl.close();
-});
+        return 0;
+    });
+}
+
+let list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+console.log(oddndPair(list))

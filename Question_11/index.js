@@ -1,12 +1,3 @@
-const readline = require('readline');
+const { main } = require('./main')
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-});
-rl.prompt();
-
-rl.on('line', (answer) => {
-    
-rl.close();
-});
+main()
