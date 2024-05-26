@@ -31,15 +31,30 @@ function main(){
   });
   }
 
-  function showList(){
+  function showList() {
     console.log("\n_______________ Registered Empoyees _______________");
-      employee_list.forEach((Employ, employName) => {
-        const salary = parseFloat(Employ.Salary);
-        const position = Employ.Position
-        console.log(`The employee "${employName}" acts as "${position}" and earns R$${salary.toFixed(2)}`);
-      });
-      console.log("___________________________________________________");
-      main();
+  
+    let HPaidEmployee = null;
+    let highestSalary = 0;
+  
+    employee_list.forEach((Employ, employName) => {
+      const salary = parseFloat(Employ.Salary);
+      const position = Employ.Position;
+      console.log(`The employee "${employName}" acts as "${position}" and earns R$${salary.toFixed(2)}`);
+  
+      if (salary > highestSalary) {
+        highestSalary = salary;
+        HPaidEmployee = { employName, position, salary };
+      }
+    });
+  
+    if (HPaidEmployee) {
+        console.log("\n_______________ Highest Paid Empoyee _______________");
+      console.log(`The employee "${HPaidEmployee.employName}" acts as "${HPaidEmployee.position}" and earns R$${HPaidEmployee.salary.toFixed(2)}`);
+    }
+  
+    console.log("_____________________________________________________");
+    main();
   }
 
   function registerEmploy(){
