@@ -14,7 +14,7 @@ rl.prompt();
 
 rl.on('line', (data) => {
     const answer = parseInt(data);
-    const number = randomInt(1, 11);
+    const number = randomInt(100, 201);
 
     if (answer == number){
         console.log("Congratulations, you gessed the right number!");
